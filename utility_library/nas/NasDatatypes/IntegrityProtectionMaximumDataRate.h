@@ -1,0 +1,25 @@
+#ifndef __INTEGRITY_PROTECTION_MAXIMUM_DATA_RATE_H
+#define __INTEGRITY_PROTECTION_MAXIMUM_DATA_RATE_H
+#include <bits/stdc++.h>
+#include "common/include/datatypes.h"
+#include "nas/nasUtil/nasLogging.h"
+
+#define INTEGRITY_PROTECTION_MAXIMUM_DATA_RATE_LEN	2
+
+
+#define INTEGRITY_PROTECTION_MAXIMUM_DATA_RATE_INTEGRITY_PROTECTION_DATA_RATE_PER_UE_DOWNLINK_64_KBPS	0b00000000
+#define INTEGRITY_PROTECTION_MAXIMUM_DATA_RATE_INTEGRITY_PROTECTION_DATA_RATE_PER_UE_DOWNLINK_FULL_DATA_RATE	0b11111111
+#define INTEGRITY_PROTECTION_MAXIMUM_DATA_RATE_INTEGRITY_PROTECTION_DATA_RATE_PER_UE_UPLINK_64_KBPS	0b00000000
+#define INTEGRITY_PROTECTION_MAXIMUM_DATA_RATE_INTEGRITY_PROTECTION_DATA_RATE_PER_UE_UPLINK_FULL_DATA_RATE	0b11111111
+
+typedef struct integrityProtectionMaximumDataRate {
+	uint8_t	maximumDataRatePerUeForUserPlaneIntegrityProtectionForUplink;
+	uint8_t	maximumDataRatePerUeForUserPlaneIntegrityProtectionForDownlink;
+}IntegrityProtectionMaximumDataRate_t;
+
+int decodeIntegrityProtectionMaximumDataRate(uint8_t *buffer, uint32_t bufLen, IntegrityProtectionMaximumDataRate_t *integrityProtectionMaximumDataRate, uint32_t* decodedLen);
+
+int encodeIntegrityProtectionMaximumDataRate(uint8_t *buffer, uint32_t bufLen, IntegrityProtectionMaximumDataRate_t *integrityProtectionMaximumDataRate, uint32_t* encodedLen);
+
+#endif 
+

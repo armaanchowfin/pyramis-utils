@@ -1,0 +1,184 @@
+{
+"version" : "1.2", 
+  
+"sessionID-1" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-2" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-3" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+},
+"sessionID-4" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-5" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-6" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-7" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-8" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-9" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-10" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-11" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-12" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-13" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-14" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+},
+"sessionID-15" : {
+	
+	"pduSessionType" : "IPV4",
+	"s-nssai" : {
+                    "sst" : 1,
+                    "sd" : 0
+                },
+    "DNN" : "dnn1.slice1.net",
+    
+    "DNN_IP" :"192.168.0.10"
+
+}
+
+}

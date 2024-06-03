@@ -1,0 +1,14 @@
+{
+	"version" : "1.2",  
+	
+	"UE_PC" :{
+        "UEC_IP" : "127.0.0.1",
+        "DATA_PORT" : "2150",
+        "CONTROL_PORT": "2234"
+	},
+	
+    "gNB_PC" :{
+        "gNB_IP" : "127.0.0.1",
+        "PORT"   : "2232"
+	}
+}

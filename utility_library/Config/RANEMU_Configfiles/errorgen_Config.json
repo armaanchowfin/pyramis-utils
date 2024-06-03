@@ -1,0 +1,60 @@
+{
+	"version" : "1.2", 
+	
+	"Batch_run" :{
+        "sleep_time" : 50000,
+        "batch_count": 0 
+    },
+
+    "NG_failure_test" :{
+        "test_enabled" : false,
+		"ng_setup_failure" : false, 
+		"invalid_TA" : false,
+		"invalid_slice" : false
+	},
+
+	"authentication_failure_test":{
+	    "test_enabled" : false,
+        "sequence_fail" : false, 
+		"MAC_fail" : false,
+		"Ngksi_fail" : false
+	}, 
+
+	"auth_response_failure_test":{ 
+	    "test_enabled" : false,
+	    "resstar_error" : false,
+        "response_delay": 0
+	},
+	
+    "SecurityMode_failure_test" : {
+        "test_enabled" : false,
+		"response_skip" : false,
+		"retry_count" : 0,
+		"capability_mismatch": false,
+		"MAC_fail" : false,
+		"integrity_fail" : false,
+		"ciphering_fail" : false
+	}, 
+	
+    "uecontext_failure_test" : {
+        "test_enabled" : false,
+		"unsupported_algorithm" : false
+	}, 
+	
+    "initial_UE_failure" : {
+        "test_enabled" : false,
+		"location_error" : false, 
+		"slice_error" : false,
+        "NAS_PDU_error" : false,
+        "protocol_error" : false
+	}, 
+	
+    "Registration_failure" : {
+        "test_enabled" : false,
+		"location_error" : false, 
+		"slice_error" : false,
+        "NAS_PDU_error" : false,
+        "protocol_error" : false
+	}
+	
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+
+.para {
+font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+}
+
+a.el {
+text-decoration: none;
+}
+
+</style>
+<title>Crypto5GT Library: Functionality Overview </title>
+</head>
+<body class="para">
+<h3 style="color:darkblue">Crypto5GT Library: Functionality Overview</h3>
+
+<h3>Brief</h3>
+<p>
+The Crypto5GT Library provides an implementation for optimal set of cryptography APIs. <br>
+Each API is designed to have compact and generic code, therefore easy to use Network functions <br>and they adhrere to standard RFC specifications<br>
+<br>
+Cryptographic APIs in library use openssl functions and some raw data transformations as per RFC/3GPP Specification.<br>
+
+Detailed help on the API usage has been documented in library header files.
+<h4>Supported Algorithms:-</h4>
+</p>
+<ul>
+	<li>AES-128
+		<ul>
+			<li>Standard Specification: NIST FIPS PUB 197</li>
+			<li>Modes in Supported in Library:-
+				<ul>
+					<li><b>AES-CBC Mode</b>
+						<ul>
+							<li>Type of API: Block cipher</li>
+							<li>Standard Specification: NIST SP 800-38A</li>
+							<li>Capability: Encryption/Decryption</li>
+						</ul>
+					</li>
+					<li><b>AES-CTR Mode</b>
+						<ul>
+							<li>Type of API: Converts to Stream cipher</li>
+							<li>Standard Specification: NIST SP 800-38A</li>
+							<li>Capability: Encryption/Decryption</li>
+						</ul>
+					</li>
+					<li><b>AES-CMAC Mode</b>
+						<ul>
+							<li>Type of API: Message Authentication Code using Block cipher</li>
+							<li>Standard Specification: NIST SP 800-38B</li>
+							<li>Capability: data Integrity </li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>KDF
+		<ul>
+			<li>Type of API: Keyed Hash Function</li>
+			<li>Standard Specification:Using HMAC-SHA-256 </li>
+				<ul>
+					<li>Type of primitive: Keyed Hash Function</li>
+					<li>Standard Specification:RFC 2104 </li>
+					<li>Capability: Authentication and Integrity</li>
+				</ul>
+		</ul>
+	</li>
+	<li>Random generator</li>
+		<ul>
+			<li>Type of random engine: Mersenne Twister</li>
+			<li>Capability: randomize with/without explicit seed</li>
+		</ul>
+</ul>
+<h3>External Dependencies</h3>
+<p> Openssl library (since openssl is opensource, no licensing is required)
+</p>
+<h3>Important Remarks</h3>
+<p>
+<ul>
+	<li>
+Crypto5GT does not intend to be fully side-channel resistant.<br>
+So no validations are done to test this library code against any sort of side channel attack.
+</li>
+<br>
+<li>
+The current implementation of all APIs does not support other key-lengths which are not multiple 8 bits.<br>
+This is as required by 5G Specifications. Currently 128 bit keys are supported. <br>
+If required, Library can be easily made scalable to support 256 bits in future.
+</li>
+</ul>
+</p>
+<h3>Specific Remarks</h3>
+
+<ul>
+	<li><b>Mersenne Twister 19937: </b><br>
+		    Before using API, you must choose entropy source to produce a seed. <br>
+		    One version of API uses default entropy seed and other one generates seed based on timestamp at that time.<br>
+		    Random generators only stretch the seed into a seemingly random output of arbitrary length. <br>
+		    The security of the output is exactly equal to the unpredictability of the seed. 
+	</li>
+	<li><b>AES CBC mode: </b><br>
+		    Openssl CBC encryption and decryption performs padding by default. <br>
+		    Thus provided APIs does output ciphertext which is larger in size that input plain text.
+		    This limitation does not apply in AES CTR API
+	</li>
+</ul>
+<h3>Examples of Applications</h3>
+<p>
+<ul>
+	<li>Construct complex Security keys (kdf using HMAC-SHA256)</li>
+	<li>Construct random mappings (kdf)</li>
+	<li>Construct nonces and challenges (generateSRAND)</li>
+	<li>Authenticate using a shared secret (kdf, AES-128 CTR, AES-CBC)</li>
+	<li>Create a integrity-protected session (CMAC)</li>
+	<li>Authenticated encryption (AES-128 CTR, AES-CBC)</li>
+</ul>
+</p>
+
+<h3>Test Vectors</h3>
+The library provides a test routines for each cryptographic APIs (see 'test' dir) which illustrate how to use the APIs <br>
+These tests evaluate the correctness of the APIs by checking results against standard validated test vectors.
+<h3>Important References</h3>
+Supported RFCs
+<ul>
+	<li><a href="http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf">NIST FIPS PUB 197 (AES-128)</a></li>
+	<li><a href="http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf">NIST SP 800-38A (AES-CBC and AES-CTR)</a></li>
+	<li><a href="http://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf">NIST SP 800-38B (AES-CMAC)</a></li>
+	<li><a href="https://www.ietf.org/rfc/rfc2104.txt">RFC 2104 (HMAC-SHA256)</a></li>
+</ul>
+3GPP References
+	<ul>
+		<li><a class="https://www.3gpp.org/DynaReport/33501.htm" href="" target="_blank">33.501</a></li>
+		<li><a class="https://www.3gpp.org/DynaReport/33401.htm" href="" target="_blank">33.401</a></li>
+	</ul>
+Helpful Discussion Threads
+<ul>
+<li><a class="el" href="http://web.archive.org/web/20140802152721/http://saju.net.in/blog/?p=36" target="_blank">Openssl AES encryption example</a></li>
+<li><a class="el" href="https://stackoverflow.com/questions/44246967/how-to-convert-aes-encrypt-in-counter-mode-to-evp-interfaces">How to convert AES_encrypt in counter mode to EVP interfaces</a></li>
+<li><a class="el" href="https://stackoverflow.com/questions/4951468/ctr-mode-use-of-initial-vectoriv">CTR mode use of Initial Vector(IV)</a></li>
+<li><a class="el" href="https://stackoverflow.com/questions/42836844/how-to-handle-the-iv-nonce-counter-for-aes-ctr">How to handle the IV/Nonce/Counter for AES CTR?</a></li>
+<li><a class="el" href="https://stackoverflow.com/questions/52369124/what-is-exact-alternate-api-instead-of-aes-ctr128-encrypt-from-openssl-1-1-0">What is exact alternate API instead of AES_ctr128_encrypt from openssl 1.1.0?</a></li>
+</ul>
+
+<br><br>
+<a class="el" style="color:maroon" href="Crypto5GTDoc.html" target="_blank">Go to Main page</a>
+
+
+</body>
+</html>

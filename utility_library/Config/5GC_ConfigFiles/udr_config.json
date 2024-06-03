@@ -1,0 +1,1663 @@
+{
+    "version": "1.6",
+
+    "ue-identities" : {
+        "supi-info" : {
+            "supi-type": 0,
+		        "IMSI-range": {
+			          "mcc": 404,
+			          "mnc-digits": 2,
+			          "mnc": 0,
+			          "msin-digits" : 10
+		        },
+            "ue-subscription" : {
+                "num-ue-subscription-data-sets" : 3,
+                "msin-sets" : {
+                    "1" : ["0000000000", "0000003333"],
+                    "2" : ["0000003334", "0000006666"],
+                    "3" : ["0000006667", "0000009999"]
+                },
+                "num-subscribers": 10000
+            }
+        },
+        "suci-info" : {
+            "suci-params": {
+			          "suci-routing-indicator": 0,
+			          "suci-protection-scheme-id": 0,
+			          "suci-home-network-public-key-id": 0
+		        }
+        },
+	      "msisdn-info" : {
+            "msisdn-digits" : 14,
+            "msisdn-len-comment" : "Msisdn len can max 15 digits",
+            "cc-digits" : 2,
+            "msisdn-len-comment" : "CC len can be of length 1-3 digits",
+            "cc" : 91,
+            "ndc-digits" : 2,
+            "ndc" : 44,
+            "sn-digits" : 10,
+            "msisdn-len-comment" : "sn and ndc is of remaining len",
+            "sn" : "0000000000",
+            "eg" : "91440000000000"
+        }
+    },
+
+	  "aka-milenage-info": {
+		    "aka-auth-type": "5G_AKA",
+		    "aka-algorithm": "MILENAGE",
+		    "aka-milenage-K-size": 16,
+		    "aka-milenage-K-start": ["0x34", "0xb7", "0xd5", "0xee", "0xe1", "0x1a", "0x21", "0x62", "0xbb", "0x20", "0xf3", "0xc4", "0xe5", "0x77", "0x36", "0x74"],
+		    "aka-milenage-OP-size": 16,
+		    "aka-milenage-OP-start": ["0x63", "0xbf", "0xa5", "0x0e", "0xe6", "0x52", "0x33", "0x65", "0xff", "0x14", "0xc1", "0xf4", "0x5f", "0x88", "0x73", "0x7d"],
+		    "aka-milenage-SQN-size": 6,
+		    "aka-milenage-starting-SQN": ["0x00", "0x00", "0x00", "0x00", "0x00", "0x00"]
+	  },
+
+    "ue-subscription-data" : [
+        {
+            "msin-set" : "1",
+            "nssai" : {
+                "num-defualt-single-nssai" : 1,
+                "default-single-nssai" : [
+                    {
+  	                    "single-nssai" : {
+    		                    "sst" : 1,
+    		                    "sd" : "000000"
+  	                    },
+                        "num-dnn-configurations" : 2,
+                        "dnn-configurations" : [
+    		                    {
+      			                    "dnn" : "dnn1.slice1.net",
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 5,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 1,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 20,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    },
+    		                    {
+      			                    "dnn" : "dnn3.slice1.net",
+      			                    "default-dnn-indicator" : true,
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+          			                    "allowed-ssc-modes": [
+          			                    		"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 2,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 2,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 40,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    }
+  	                    ],
+                        "additional-snssai-data": {
+                            "required-authn-authz" : false,
+                            "support-3gpp" : true,
+                            "support-non-3gpp" : true
+                        }
+                    }
+                ],
+                "num-non-default-single-nssai" : 2,
+                "non-default-single-nssai" : [
+                    {
+  	                    "single-nssai" : {
+    		                    "sst" : 3,
+    		                    "sd" : "000000"
+  	                    },
+                        "num-dnn-configurations" : 2,
+  	                    "dnn-configurations" : [
+    		                    {
+      			                    "dnn" : "dnn1.slice3.net",
+      			                    "default-dnn-indicator" : true,
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+          			                    "allowed-ssc-modes": [
+          			                    		"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 3,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 3,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 30,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+				                    },
+    		                    {
+      			                    "dnn" : "dnn2.slice3.net",
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    		"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 4,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 4,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 50,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    }
+  	                    ],
+                        "additional-snssai-data": {
+                            "required-authn-authz" : true,
+                            "support-3gpp" : false,
+                            "support-non-3gpp" : true
+                        }
+                    },
+
+                    {
+  	                    "single-nssai" : {
+    		                    "sst" : 2,
+                            "sd" : "000000"
+  	                    },
+                        "num-dnn-configurations" : 2,
+  	                    "dnn-configurations" : [
+    		                    {
+      			                    "dnn" : "dnn2.slice2.net",
+      			                    "default-dnn-indicator" : true,
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    		"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        			                  },
+                                "5g-qos-profile": {
+                                    "5qi": 5,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 5,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 10,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    },
+    		                    {
+      			                    "dnn" : "dnn3.slice2.net",
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 6,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 6,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 60,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    }
+  	                    ],
+                        "additional-snssai-data": {
+                            "required-authn-authz" : true,
+                            "support-3gpp" : true,
+                            "support-non-3gpp" : false
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "msin-set" : "2",
+            "nssai" : {
+                "num-defualt-single-nssai" : 1,
+                "default-single-nssai" : [
+                    {
+  	                    "single-nssai" : {
+    		                    "sst" : 4,
+    		                    "sd" : "000000"
+  	                    },
+                        "num-dnn-configurations" : 2,
+  	                    "dnn-configurations" : [
+    		                    {
+      			                    "dnn" : "dnn4.slice4.net",
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 7,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 7,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 70,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    },
+    		                    {
+      			                    "dnn" : "dnn6.slice4.net",
+      			                    "default-dnn-indicator" : true,
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+          			                    "allowed-ssc-modes": [
+          			                    		"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 8,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 8,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 80,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    }
+  	                    ],
+                        "additional-snssai-data": {
+                            "required-authn-authz" : false,
+                            "support-3gpp" : true,
+                            "support-non-3gpp" : true
+                        }
+                    }
+                ],
+                "num-non-default-single-nssai" : 2,
+                "non-default-single-nssai" : [
+                    {
+  	                    "single-nssai" : {
+    		                    "sst" : 5,
+    		                    "sd" : "000000"
+  	                    },
+                        "num-dnn-configurations" : 2,
+  	                    "dnn-configurations" : [
+    		                    {
+      			                    "dnn" : "dnn4.slice5.net",
+      			                    "default-dnn-indicator" : true,
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+          			                    "allowed-ssc-modes": [
+          			                    		"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 9,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 1,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 90,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+				                    },
+    		                    {
+      			                    "dnn" : "dnn5.slice5.net",
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 1,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 2,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 20,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    }
+  	                    ],
+                        "additional-snssai-data": {
+                            "required-authn-authz" : true,
+                            "support-3gpp" : true,
+                            "support-non-3gpp" : false
+                        }
+                    },
+
+                    {
+  	                    "single-nssai" : {
+    		                    "sst" : 6,
+                            "sd" : "000000"
+  	                    },
+                        "num-dnn-configurations" : 2,
+  	                    "dnn-configurations" : [
+    		                    {
+      			                    "dnn" : "dnn5.slice6.net",
+      			                    "default-dnn-indicator" : true,
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        			                  },
+                                "5g-qos-profile": {
+                                    "5qi": 2,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 3,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 40,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    },
+    		                    {
+      			                    "dnn" : "dnn6.slice6.net",
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 3,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 4,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 30,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    }
+  	                    ],
+                        "additional-snssai-data": {
+                            "required-authn-authz" : true,
+                            "support-3gpp" : false,
+                            "support-non-3gpp" : true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "msin-set" : "3",
+            "nssai" : {
+                "num-defualt-single-nssai" : 1,
+                "default-single-nssai" : [
+                    {
+  	                    "single-nssai" : {
+    		                    "sst" : 7,
+    		                    "sd" : "000000"
+  	                    },
+                        "num-dnn-configurations" : 2,
+  	                    "dnn-configurations" : [
+    		                    {
+      			                    "dnn" : "dnn7.slice7.net",
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 4,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 5,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 50,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    },
+    		                    {
+      			                    "dnn" : "dnn9.slice7.net",
+      			                    "default-dnn-indicator" : true,
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+          			                    "allowed-ssc-modes": [
+          			                    		"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 5,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 6,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 10,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    }
+  	                    ],
+                        "additional-snssai-data": {
+                            "required-authn-authz" : false,
+                            "support-3gpp" : true,
+                            "support-non-3gpp" : true
+                        }
+                    }
+                ],
+                "num-non-default-single-nssai" : 2,
+                "non-default-single-nssai" : [
+                    {
+  	                    "single-nssai" : {
+    		                    "sst" : 9,
+    		                    "sd" : "000000"
+  	                    },
+                        "num-dnn-configurations" : 2,
+  	                    "dnn-configurations" : [
+    		                    {
+      			                    "dnn" : "dnn7.slice9.net",
+      			                    "default-dnn-indicator" : true,
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+          			                    "allowed-ssc-modes": [
+          			                    		"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 6,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 7,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 60,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+				                    },
+    		                    {
+      			                    "dnn" : "dnn8.slice9.net",
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 7,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 8,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 70,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    }
+  	                    ],
+                        "additional-snssai-data": {
+                            "required-authn-authz" : true,
+                            "support-3gpp" : false,
+                            "support-non-3gpp" : true
+                        }
+                    },
+
+                    {
+  	                    "single-nssai" : {
+    		                    "sst" : 8,
+                            "sd" : "000000"
+  	                    },
+                        "num-dnn-configurations" : 2,
+  	                    "dnn-configurations" : [
+    		                    {
+      			                    "dnn" : "dnn8.slice8.net",
+      			                    "default-dnn-indicator" : true,
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        			                  },
+                                "5g-qos-profile": {
+                                    "5qi": 8,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 1,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 80,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    },
+    		                    {
+      			                    "dnn" : "dnn9.slice8.net",
+					                      "pdu-session-types": {
+      					                    "default-session-type" : "IPV4",
+                                    "num-allowed-session-types": 1,
+      					                    "allowed-session-types": [
+        					                      "IPV4"
+      					                    ]
+    				                    },
+        		                    "ssc-modes": {
+        				                    "default-ssc-mode" : "SSC_MODE_1",
+                                    "num-allowed-ssc-modes": 2,
+                                    "allowed-ssc-modes": [
+                                    			"SSC_MODE_1",
+            				                    "SSC_MODE_2"
+          			                    ]
+        		                    },
+                                "5g-qos-profile": {
+                                    "5qi": 9,
+                                    "5qi-comment" : "This value lies between 0-255 with min as 0 and max as 255",
+                                    "arp": {
+                                        "priority-level": 2,
+                                        "preempt-cap": "NOT_PREEMPT",
+                                        "preempt-vuln": "NOT_PREEMPTABLE",
+                                        "arp-priority-level-comment" : "This value lies between 1-15 with min as 1 and max as 15",
+                                        "preempt-cap-comment" : "2 ENUM  values: NOT_PREEMPT and MAY_PREEMPT",
+                                        "preempt-vuln-comment" : "2 ENUM  values: NOT_PREEMPTABLE and PREEMPTABLE"
+                                    },
+                                    "priority-level": 90,
+                                    "5qi-priority-level-comment" : "This value lies between 1-127 with min as 1 and max as 127"
+                                },
+                                "session-ambr": {
+                                    "uplink": "1024 Mbps",
+                                    "downlink": "1024 Mbps"
+                                }
+    		                    }
+  	                    ],
+                        "additional-snssai-data": {
+                            "required-authn-authz" : true,
+                            "support-3gpp" : true,
+                            "support-non-3gpp" : false
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "policy-data" : [
+        {
+          "supi-set" : "1",
+          "am-policy-data" : {
+            "num-subscats" : 3,
+            "subscats" : ["", "", ""]
+          },
+          "sm-policy-data" : {
+                  "sm-policy-snssai-data" : {
+                          "9-000000" : {
+                                  "snssai" : {
+                                          "sst" : 9,
+                                          "sd" : "000000"
+                                  },
+                                  "sm-policy-dnn-data" : {
+                                          "dnn7.slice9.net" : {
+                                                  "dnn" : "dnn7.slice9.net",
+                                                  "num-allowed-services" : 1,
+                                                  "allowed-services" : ["ims-service"],
+                                                  "gbr-ul" : "0.125 Gbps",
+                                                  "gbr-dl" : "0.25 Gbps",
+                                                  "adc-support" : false,
+                                                  "subsc-spending-limits" : false,
+                                                  "offline" : false,
+                                                  "online" : false,
+                                                  "chf-info" : {
+                                                          "primary-chf-address" : "",
+                                                          "secondary-chf-address" : "" 
+                                                  },
+                                                  "ref-umd-limit-ids" : {
+                                                          "1" : {
+                                                                  "limit-id" : "1",
+                                                                  "num-mon-keys" : 3,
+                                                                  "mon-keys" : ["","",""] 
+                                                          },
+                                                          "2" : {
+                                                                  "limit-id" : "2",
+                                                                  "num-mon-keys" : 3,
+                                                                  "mon-keys" : ["","",""] 
+                                                          }
+                                                  },
+                                                  "mps-priority" : false,
+                                                  "mcs-priority" : false,
+                                                  "ims-signalling-prio" : false,
+                                                  "mps-priority-level" : 1,
+                                                  "mcs-priority-level" : 2
+                                          },
+                                          "dnn8.slice9.net" : {
+                                                  "dnn" : "dnn8.slice9.net",
+                                                  "num-allowed-services" : 1,
+                                                  "allowed-services" : ["ims-service"],
+                                                  "gbr-ul" : "0.125 Gbps",
+                                                  "gbr-dl" : "0.25 Gbps",
+                                                  "adc-support" : false,
+                                                  "subsc-spending-limits" : false,
+                                                  "offline" : false,
+                                                  "online" : false,
+                                                  "chf-info" : {
+                                                          "primary-chf-address" : "",
+                                                          "secondary-chf-address" : "" 
+                                                  },
+                                                  "ref-umd-limit-ids" : {
+                                                          "1" : {
+                                                                  "limit-id" : "1",
+                                                                  "num-mon-keys" : 3,
+                                                                  "mon-keys" : ["","",""] 
+                                                          },
+                                                          "2" : {
+                                                                  "limit-id" : "2",
+                                                                  "num-mon-keys" : 3,
+                                                                  "mon-keys" : ["","",""] 
+                                                          }
+                                                  },
+                                                  "mps-priority" : false,
+                                                  "mcs-priority" : false,
+                                                  "ims-signalling-prio" : false,
+                                                  "mps-priority-level" : 1,
+                                                  "mcs-priority-level" : 2
+                                          }
+                                  }
+                          }
+                  },
+                  "um-data-limits" : {
+                          "1" : {
+                                  "limit-id" : "1",
+                                  "scopes" : {
+                                          "9-000000" : {
+                                                  "snssai" : {
+                                                          "sst" : 9,
+                                                          "sd" : "000000"
+                                                  },
+                                                  "num-dnn" : 2,
+                                                  "dnn" : [
+                                                          "dnn7.slice9.net",
+                                                          "dnn8.slice9.net"
+                                                  ]
+                                          }
+                                  },
+                                  "um-level" : 0,
+                                  "start-date" : "2020-05-05T16:20:52.127Z",
+                                  "end-date" : "2020-05-07T18:20:52.127Z",
+                                  "usage-limit" : {
+                                          "duration" : 0,
+                                          "total-volume" : 0,
+                                          "downlink-volume" : 0,
+                                          "uplink-volume" : 0
+                                  },
+                                  "reset-period" : "2020-05-07T18:20:52.127Z" 
+                          },
+                          "2" : {
+                                  "limit-id" : "2",
+                                  "scopes" : {
+                                          "9-000000" : {
+                                                  "snssai" : {
+                                                          "sst" : 9,
+                                                          "sd" : "000000"
+                                                  },
+                                                  "num-dnn" : 2,
+                                                  "dnn" : [
+                                                          "dnn7.slice9.net",
+                                                          "dnn8.slice9.net"
+                                                  ]
+                                          }
+                                  },
+                                  "um-level" : 0,
+                                  "start-date" : "2020-05-05T16:20:52.127Z",
+                                  "end-date" : "2020-05-07T18:20:52.127Z",
+                                  "usage-limit" : {
+                                          "duration" : 0,
+                                          "total-volume" : 0,
+                                          "downlink-volume" : 0,
+                                          "uplink-volume" : 0
+                                  },
+                                  "reset-period" : "2020-05-07T18:20:52.127Z"
+                          }
+                  },
+                  "um-data" : {
+                          "1" : {
+                                  "limit-id" : "1",
+                                  "um-level" : 0,
+                                  "allowed-usage" : {
+                                          "duration" : 0,
+                                          "total-volume" : 0,
+                                          "downlink-volume" : 0,
+                                          "uplink-volume" : 0
+                                  },
+                                  "reset-time" : "2020-05-07T18:20:52.127Z"
+                          },
+                          "2" : {
+                                  "limit-id" : "2",
+                                  "um-level" : 0,
+                                  "allowed-usage" : {
+                                          "duration" : 0,
+                                          "total-volume" : 0,
+                                          "downlink-volume" : 0,
+                                          "uplink-volume" : 0
+                                  },
+                                  "reset-time" : "2020-05-07T18:20:52.127Z"
+                          }
+                  }
+          },
+          "ue-policy-data" : {
+            "num-subscats" : 3,
+            "subscats" : ["", "", ""],
+            "ue-policy-sections" : {
+              "ue-policy-section-info" : "",
+              "upsi" : "",
+              "comments" : "ue-policy-section-info should be bytes, we don't know how to store bytes so making it a string"
+            },
+            "num-upsis" : 2,
+            "upsis" : ["",""],
+            "allowed-route-sel-descs" : {
+              "40400" : {
+                "serving-plmn" : {
+                  "mcc": 404,
+                  "mnc-digits": 2,
+                  "mnc": 0
+                },
+                "num-snssai-route-sel-descs" : 1,
+                "snssai-route-sel-descs" :[
+                  {
+                    "snssai" : {
+                      "sst" : 9,
+                      "sd" : "000000"
+                    },
+                    "num-dnn-route-sel-descs" : 2,
+                    "dnn-route-sel-descs" : [
+                      {
+                        "dnn" : "dnn7.slice9.net",
+                        "num-ssc-modes" : 2,
+                        "ssc-modes" : ["SSC_MODE_1", "SSC_MODE_2"],
+                        "num-pdu-sess-types" : 1,
+                        "pdu-sess-types" : ["IPV4"]
+                      },
+                      {
+                        "dnn" : "dnn8.slice9.net",
+                        "num-ssc-moodes" : 2,
+                        "ssc-modes" : ["SSC_MODE_1", "SSC_MODE_2"],
+                        "num-pdu-sess-types" : 1,
+                        "pdu-sess-types" : ["IPV4"]
+                      }
+                    ]
+                  }
+                ] 
+              }
+            },
+            "andsp-ind" : false,
+            "pei" : "imei-012345678901234",
+            "num-os-ids" : 1,
+            "os-ids" : ["3fa85f64-5717-4562-b3fc-2c963f66afa6"]
+          },
+          "pra-infos" : {
+            "1234": {
+              "pra-id" : "1234",
+              "presence-state" : 0,
+              "num-tracking-area-list" : 2,
+              "tracking-area-list" : [
+                      {
+                              "plmn-id" : {
+                                "mcc": 404,
+                                "mnc-digits": 2,
+                                "mnc": 0
+                              },
+                              "tac" : "abcd"
+                      },
+                      {
+                              "plmn-id" : {
+                                "mcc": 404,
+                                "mnc-digits": 2,
+                                "mnc": 0
+                              },
+                              "tac" : "abce"
+                      }
+              ],
+              "num-global-ran-node-id-list" : 2,
+              "global-ran-node-id-list" : [
+                      {
+                              "plmn-id" : {
+                                "mcc": 404,
+                                "mnc-digits": 2,
+                                "mnc": 0
+                              },
+                              "n3iwf-id" : "n31wfid123",
+                              "gnb-id" : {
+                                "bit-length" : 32,
+                                "gnb-value" : "A12F54"
+                              }
+                      },
+                      {
+                              "plmn-id" : {
+                                "mcc": 404,
+                                "mnc-digits": 2,
+                                "mnc": 0
+                              },
+                              "n3iwf-id" : "n31wfid124",
+                              "gnb-id" : {
+                                "bit-length" : 32,
+                                "gnb-value" : "A12F56"
+                              }
+                      }
+              ],
+              "comments" : "add the same for all 3 policies"
+            }
+          }
+        },
+        {
+          "supi-set" : "2",
+          "am-policy-data" : {
+            "num-subscats" : 3,
+            "subscats" : ["", "", ""]
+          },
+          "sm-policy-data" : {
+            "sm-policy-snssai-data" : {
+              "9-000000" : {
+                "snssai" : {
+                  "sst" : 9,
+                  "sd" : "000000"
+                },
+                "sm-policy-dnn-data" : {
+                  "dnn7.slice9.net" : {
+                    "dnn" : "dnn7.slice9.net",
+                    "num-allowed-services" : 1,
+                    "allowed-services" : ["ims-service"],
+                    "gbr-ul" : "0.125 Gbps",
+                    "gbr-dl" : "0.25 Gbps",
+                    "adc-support" : false,
+                    "subsc-spending-limits" : false,
+                    "offline" : false,
+                    "online" : false,
+                    "chf-info" : {
+                      "primary-chf-address" : "",
+                      "secondary-chf-address" : "" 
+                    },
+                    "ref-umd-limit-ids" : {
+                      "1" : {
+                        "limit-id" : "1",
+                        "num-mon-keys" : 3,
+                        "mon-keys" : ["","",""] 
+                      },
+                      "2" : {
+                        "limit-id" : "2",
+                        "num-mon-keys" : 3,
+                        "mon-keys" : ["","",""] 
+                      }
+                    },
+                    "mps-priority" : false,
+                    "mcs-priority" : false,
+                    "ims-signalling-prio" : false,
+                    "mps-priority-level" : 1,
+                    "mcs-priority-level" : 2
+                  },
+                  "dnn8.slice9.net" : {
+                    "dnn" : "dnn8.slice9.net",
+                    "allowed-services" : ["ims-service"],
+                    "gbr-ul" : "0.125 Gbps",
+                    "gbr-dl" : "0.25 Gbps",
+                    "adc-support" : false,
+                    "subsc-spending-limits" : false,
+                    "offline" : false,
+                    "online" : false,
+                    "chf-info" : {
+                      "primary-chf-address" : "",
+                      "secondary-chf-address" : "" 
+                    },
+                    "ref-umd-limit-ids" : {
+                      "1" : {
+                        "limit-id" : "1",
+                        "mon-keys" : ["","",""] 
+                      },
+                      "2" : {
+                        "limit-id" : "2",
+                        "mon-keys" : ["","",""] 
+                      }
+                    },
+                    "mps-priority" : false,
+                    "mcs-priority" : false,
+                    "ims-signalling-prio" : false,
+                    "mps-priority-level" : 1,
+                    "mcs-priority-level" : 2
+                  }
+                }
+              }
+            },
+            "um-data-limits" : {
+              "1" : {
+                "limit-id" : "1",
+                "scopes" : {
+                  "9-000000" : {
+                    "snssai" : {
+                        "sst" : 9,
+                        "sd" : "000000"
+                    },
+                    "num-dnn" : 2,
+                    "dnn" : [
+                      "dnn7.slice9.net",
+                      "dnn8.slice9.net"
+                    ]
+                  } 
+                },
+                "um-level" : 0,
+                "start-date" : "2020-05-05T16:20:52.127Z",
+                "end-date" : "2020-05-07T18:20:52.127Z",
+                "usage-limit" : {
+                  "duration" : 0,
+                  "total-volume" : 0,
+                  "downlink-volume" : 0,
+                  "uplink-volume" : 0
+                },
+                "reset-period" : "2020-05-07T18:20:52.127Z" 
+              },
+              "2" : {
+                "limit-id" : "2",
+                "scopes" : {
+                  "9-000000" : {
+                    "snssai" : {
+                      "sst" : 9,
+                      "sd" : "000000"
+                    },
+                    "dnn" : [
+                      "dnn7.slice9.net",
+                      "dnn8.slice9.net"
+                    ]
+                  }
+                },
+                "um-level" : 0,
+                "start-date" : "2020-05-05T16:20:52.127Z",
+                "end-date" : "2020-05-07T18:20:52.127Z",
+                "usage-limit" : {
+                  "duration" : 0,
+                  "total-volume" : 0,
+                  "downlink-volume" : 0,
+                  "uplink-volume" : 0
+                },
+                "reset-period" : "2020-05-07T18:20:52.127Z"
+              }
+            },
+            "um-data" : {
+              "1" : {
+                "limit-id" : "1",
+                "um-level" : 0,
+                "allowed-usage" : {
+                  "duration" : 0,
+                  "total-volume" : 0,
+                  "downlink-volume" : 0,
+                  "uplink-volume" : 0
+                },
+                "reset-time" : "2020-05-07T18:20:52.127Z"
+              },
+              "2" : {
+                "limit-id" : "2",
+                "um-level" : 0,
+                "allowed-usage" : {
+                  "duration" : 0,
+                  "total-volume" : 0,
+                  "downlink-volume" : 0,
+                  "uplink-volume" : 0
+                },
+                "reset-time" : "2020-05-07T18:20:52.127Z"
+              }
+            }
+          },
+          "ue-policy-data" : {
+            "num-subscats" : 3,
+            "subscats" : ["", "", ""],
+            "ue-policy-sections" : {
+              "ue-policy-section-info" : "",
+              "upsi" : "",
+              "comments" : "ue-policy-section-info should be bytes, we don't know how to store bytes so making it a string"
+            },
+            "num-upsis" : 2,
+            "upsis" : ["",""],
+            "allowed-route-sel-descs" : {
+              "40400" : {
+                "serving-plmn" : {
+                  "mcc": 404,
+                  "mnc-digits": 2,
+                  "mnc": 0
+                },
+                "num-snssai-route-sel-descs" : 1,
+                "snssai-route-sel-descs" :[
+                  {
+                    "snssai" : {
+                      "sst" : 9,
+                      "sd" : "000000"
+                    },
+                    "num-dnn-route-sel-descs" : 2,
+                    "dnn-route-sel-descs" : [
+                      {
+                        "dnn" : "dnn7.slice9.net",
+                        "num-ssc-moodes" : 2,
+                        "ssc-modes" : ["SSC_MODE_1", "SSC_MODE_2"],
+                        "num-pdu-sess-types" : 1,
+                        "pdu-sess-types" : ["IPV4"]
+                      },
+                      {
+                        "dnn" : "dnn8.slice9.net",
+                        "num-ssc-moodes" : 2,
+                        "ssc-modes" : ["SSC_MODE_1", "SSC_MODE_2"],
+                        "num-pdu-sess-types" : 1,
+                        "pdu-sess-types" : ["IPV4"]
+                      }
+                    ]
+                  }
+                ] 
+              }
+            },
+            "andsp-ind" : false,
+            "pei" : "imei-012345678901234",
+            "num-os-ids" : 1,
+            "os-ids" : ["3fa85f64-5717-4562-b3fc-2c963f66afa6"]
+          },
+          "pra-infos" : {
+            "1234": {
+              "pra-id" : "1234",
+              "presence-state" : 0,
+              "num-tracking-area-list" : 2,
+              "tracking-area-list" : [
+                {
+                  "plmn-id" : {
+                    "mcc": 404,
+                    "mnc-digits": 2,
+                    "mnc": 0
+                  },
+                  "tac" : "abcd"
+                },
+                {
+                  "plmn-id" : {
+                    "mcc": 404,
+                    "mnc-digits": 2,
+                    "mnc": 0
+                  },
+                  "tac" : "abce"
+                }
+              ],
+              "num-global-ran-node-id-list" : 2,
+              "global-ran-node-id-list" : [
+                {
+                  "plmn-id" : {
+                    "mcc": 404,
+                    "mnc-digits": 2,
+                    "mnc": 0
+                  },
+                  "n3iwf-id" : "n31wfid123",
+                  "gnb-id" : {
+                    "bit-length" : 32,
+                    "gnb-value" : "A12F54"
+                  }
+                },
+                {
+                  "plmn-id" : {
+                    "mcc": 404,
+                    "mnc-digits": 2,
+                    "mnc": 0
+                  },
+                  "n3iwf-id" : "n31wfid124",
+                  "gnb-id" : {
+                    "bit-length" : 32,
+                    "gnb-value" : "A12F56"
+                  }
+                }
+              ],
+              "comments" : "add the same for all 3 policies"
+            }
+          }
+        },
+        {
+          "supi-set" : "3",
+          "am-policy-data" : {
+            "num-subscats" : 3,
+            "subscats" : ["", "", ""]
+          },
+          "sm-policy-data" : {
+            "sm-policy-snssai-data" : {
+              "9-000000" : {
+                "snssai" : {
+                  "sst" : 9,
+                  "sd" : "000000"
+                },
+                "sm-policy-dnn-data" : {
+                  "dnn7.slice9.net" : {
+                    "dnn" : "dnn7.slice9.net",
+                    "num-allowed-services" : 1,
+                    "allowed-services" : ["ims-service"],
+                    "gbr-ul" : "0.125 Gbps",
+                    "gbr-dl" : "0.25 Gbps",
+                    "adc-support" : false,
+                    "subsc-spending-limits" : false,
+                    "offline" : false,
+                    "online" : false,
+                    "chf-info" : {
+                      "primary-chf-address" : "",
+                      "secondary-chf-address" : "" 
+                    },
+                    "ref-umd-limit-ids" : {
+                      "1" : {
+                        "limit-id" : "1",
+                        "num-mon-keys" : 3,
+                        "mon-keys" : ["","",""] 
+                      },
+                      "2" : {
+                        "limit-id" : "2",
+                        "num-mon-keys" : 3,
+                        "mon-keys" : ["","",""] 
+                      }
+                    },
+                    "mps-priority" : false,
+                    "mcs-priority" : false,
+                    "ims-signalling-prio" : false,
+                    "mps-priority-level" : 1,
+                    "mcs-priority-level" : 2
+                  },
+                  "dnn8.slice9.net" : {
+                    "dnn" : "dnn8.slice9.net",
+                    "allowed-services" : ["ims-service"],
+                    "gbr-ul" : "0.125 Gbps",
+                    "gbr-dl" : "0.25 Gbps",
+                    "adc-support" : false,
+                    "subsc-spending-limits" : false,
+                    "offline" : false,
+                    "online" : false,
+                    "chf-info" : {
+                      "primary-chf-address" : "",
+                      "secondary-chf-address" : "" 
+                    },
+                    "ref-umd-limit-ids" : {
+                      "1" : {
+                        "limit-id" : "1",
+                        "mon-keys" : ["","",""] 
+                      },
+                      "2" : {
+                        "limit-id" : "2",
+                        "mon-keys" : ["","",""] 
+                      }
+                    },
+                    "mps-priority" : false,
+                    "mcs-priority" : false,
+                    "ims-signalling-prio" : false,
+                    "mps-priority-level" : 1,
+                    "mcs-priority-level" : 2
+                  }
+                }
+              }
+            },
+            "um-data-limits" : {
+              "1" : {
+                "limit-id" : "1",
+                "scopes" : {
+                  "9-000000" : {
+                    "snssai" : {
+                        "sst" : 9,
+                        "sd" : "000000"
+                    },
+                    "num-dnn" : 2,
+                    "dnn" : [
+                      "dnn7.slice9.net",
+                      "dnn8.slice9.net"
+                    ]
+                  } 
+                },
+                "um-level" : 0,
+                "start-date" : "2020-05-05T16:20:52.127Z",
+                "end-date" : "2020-05-07T18:20:52.127Z",
+                "usage-limit" : {
+                  "duration" : 0,
+                  "total-volume" : 0,
+                  "downlink-volume" : 0,
+                  "uplink-volume" : 0
+                },
+                "reset-period" : "2020-05-07T18:20:52.127Z" 
+              },
+              "2" : {
+                "limit-id" : "2",
+                "scopes" : {
+                  "9-000000" : {
+                    "snssai" : {
+                      "sst" : 9,
+                      "sd" : "000000"
+                    },
+                    "dnn" : [
+                      "dnn7.slice9.net",
+                      "dnn8.slice9.net"
+                    ]
+                  }
+                },
+                "um-level" : 0,
+                "start-date" : "2020-05-05T16:20:52.127Z",
+                "end-date" : "2020-05-07T18:20:52.127Z",
+                "usage-limit" : {
+                  "duration" : 0,
+                  "total-volume" : 0,
+                  "downlink-volume" : 0,
+                  "uplink-volume" : 0
+                },
+                "reset-period" : "2020-05-07T18:20:52.127Z"
+              }
+            },
+            "um-data" : {
+              "1" : {
+                "limit-id" : "1",
+                "um-level" : 0,
+                "allowed-usage" : {
+                  "duration" : 0,
+                  "total-volume" : 0,
+                  "downlink-volume" : 0,
+                  "uplink-volume" : 0
+                },
+                "reset-time" : "2020-05-07T18:20:52.127Z"
+              },
+              "2" : {
+                "limit-id" : "2",
+                "um-level" : 0,
+                "allowed-usage" : {
+                  "duration" : 0,
+                  "total-volume" : 0,
+                  "downlink-volume" : 0,
+                  "uplink-volume" : 0
+                },
+                "reset-time" : "2020-05-07T18:20:52.127Z"
+              }
+            }
+          },
+          "ue-policy-data" : {
+            "num-subscats" : 3,
+            "subscats" : ["", "", ""],
+            "ue-policy-sections" : {
+              "ue-policy-section-info" : "",
+              "upsi" : "",
+              "comments" : "ue-policy-section-info should be bytes, we don't know how to store bytes so making it a string"
+            },
+            "num-upsis" : 2,
+            "upsis" : ["",""],
+            "allowed-route-sel-descs" : {
+              "40400" : {
+                "serving-plmn" : {
+                  "mcc": 404,
+                  "mnc-digits": 2,
+                  "mnc": 0
+                },
+                "num-snssai-route-sel-descs" : 1,
+                "snssai-route-sel-descs" :[
+                  {
+                    "snssai" : {
+                      "sst" : 9,
+                      "sd" : "000000"
+                    },
+                    "num-dnn-route-sel-descs" : 2,
+                    "dnn-route-sel-descs" : [
+                      {
+                        "dnn" : "dnn7.slice9.net",
+                        "num-ssc-moodes" : 2,
+                        "ssc-modes" : ["SSC_MODE_1", "SSC_MODE_2"],
+                        "num-pdu-sess-types" : 1,
+                        "pdu-sess-types" : ["IPV4"]
+                      },
+                      {
+                        "dnn" : "dnn8.slice9.net",
+                        "num-ssc-moodes" : 2,
+                        "ssc-modes" : ["SSC_MODE_1", "SSC_MODE_2"],
+                        "num-pdu-sess-types" : 1,
+                        "pdu-sess-types" : ["IPV4"]
+                      }
+                    ]
+                  }
+                ] 
+              }
+            },
+            "andsp-ind" : false,
+            "pei" : "imei-012345678901234",
+            "num-os-ids" : 1,
+            "os-ids" : ["3fa85f64-5717-4562-b3fc-2c963f66afa6"]
+          },
+          "pra-infos" : {
+            "1234": {
+              "pra-id" : "1234",
+              "presence-state" : 0,
+              "num-tracking-area-list" : 2,
+              "tracking-area-list" : [
+                {
+                  "plmn-id" : {
+                    "mcc": 404,
+                    "mnc-digits": 2,
+                    "mnc": 0
+                  },
+                  "tac" : "abcd"
+                },
+                {
+                  "plmn-id" : {
+                    "mcc": 404,
+                    "mnc-digits": 2,
+                    "mnc": 0
+                  },
+                  "tac" : "abce"
+                }
+              ],
+              "num-global-ran-node-id-list" : 2,
+              "global-ran-node-id-list" : [
+                {
+                  "plmn-id" : {
+                    "mcc": 404,
+                    "mnc-digits": 2,
+                    "mnc": 0
+                  },
+                  "n3iwf-id" : "n31wfid123",
+                  "gnb-id" : {
+                    "bit-length" : 32,
+                    "gnb-value" : "A12F54"
+                  }
+                },
+                {
+                  "plmn-id" : {
+                    "mcc": 404,
+                    "mnc-digits": 2,
+                    "mnc": 0
+                  },
+                  "n3iwf-id" : "n31wfid124",
+                  "gnb-id" : {
+                    "bit-length" : 32,
+                    "gnb-value" : "A12F56"
+                  }
+                }
+              ],
+              "comments" : "add the same for all 3 policies"
+            }
+          }
+        }
+      ]
+}

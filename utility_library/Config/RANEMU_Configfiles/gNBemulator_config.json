@@ -1,0 +1,61 @@
+{
+	"version" : "1.2",  
+	
+	"num-gNB" : 1, 
+
+	"gNB-info" : [
+				{ 
+				"gNB-id" : 0, 
+				"gNB-ran-node-name" : "gNB1",  
+				"gNB-ipAddr" : "127.0.0.1",
+				"nr-cellIdentity" : "8382A3F47",
+				"home-plmn" : {
+						"mcc" : "404",
+						"mnc-size" : "2",
+						"mnc" : "00" 
+						},
+				"gNB-amf-info" : [{
+					"num-amf" : 1, 
+					"amf-id-list" : [1],
+					"defailt-amf-id" : 1
+				}],	
+				"num-TAs" : 1, 		
+				"ta-info" : [{
+					"num-plmn" : 1, 
+					"plmn-info" : [
+						{
+						"mcc" : "404", 
+						"mnc-size" : "2", 
+						"mnc" : "00",
+						"gNB-nssai" : [
+							{ 
+								"sst" : "1",
+					    		"sd" : "000"
+							}
+							]
+					}
+					],
+					"tac" : "1" 
+				}]
+	}
+	],  
+
+	"num-amf" : 1,
+				 "amf": [
+	    				{
+	     				"amf-id" : 1,
+	     				"amf-name" : "AMF1",
+	     				"amf-primary-ip" : "127.0.0.1",
+	     				"amf-primary-ip-subnet-mask" : "255.255.0.0",  
+	     				"amf-secondary-ip" : "10.0.1.21",
+	     				"amf-secondary-ip-subnet-mask" : "255.255.0.0",  
+	     				"amf-port" : 38412,
+	     				"is-default" : 1,
+	     				"no-of-streams" : 2
+
+	     				} 
+	  			],
+    "ng-setup-response-timer" : 1,
+    "ng-setup-response-max-retry-counter" : 3
+}
+

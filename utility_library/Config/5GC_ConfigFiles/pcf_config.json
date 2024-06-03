@@ -1,0 +1,438 @@
+{
+    "dnn1.slice1.net": {
+        "defaultFlow": {
+            "COMMENT1": "Index is 5qi value",
+
+            "5": {
+                "arp": {
+                    "priorityLevel": "1",
+                    "preemptVuln": "NOT_PREEMPT",
+                    "preemptCap": "NOT_PREEMPTABLE"
+                },
+                "flowType": "nonGbr",
+                "precedence": 255,
+                "flowInfos": [
+                    {
+                        "packFiltId": "1",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from any to any",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "UPLINK"
+                    },
+		            {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from any to any",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "DOWNLINK"
+                    }
+                ]
+            },
+            "4": {
+                "arp": {
+                    "priorityLevel": "0",
+                    "preemptVuln": "string",
+                    "preemptCap": "string"
+                },
+                "flowType": "Gbr",
+                "maxbrUl": "1 Gbps",
+                "maxbrDl": "1 Gbps",
+                "gbrUl": "1 Gbps",
+                "gbrDl": "1 Gbps",
+                "precedence": 255,
+                "flowInfos": [
+                    {
+                        "packFiltId": "1",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from any to any",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "BIDIRECTIONAL"
+                    }
+                ]
+            }
+        },
+        "additionalFlows": {
+            "2": {
+                "flowType": "Gbr",
+                "precedence": 3,
+                "maxbrUl": "4 Kbps",
+                "maxbrDl": "4 Kbps",
+                "gbrUl": "4 Kbps",
+                "gbrDl": "4 Kbps",
+                "flowInfos": [
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "192.168.1.100",
+                        "EXAMPLE flowDescription": "permit out ip from any to any",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "UPLINK"
+                    },
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "192.168.1.100",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from any to any",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "DOWNLINK"
+                    }
+                ]
+            },
+            "8": {
+                "flowType": "nonGbr",
+                "precedence": 2,
+                "flowInfos": [
+                    {
+                        "flowDescription": "permit out ip from any to any",
+                        "packFiltId": "1",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "BIDIRECTIONAL"
+                    }
+                ]
+            }
+        }
+    },
+    "dnn2.slice1.net": {
+        "defaultFlow": {
+            "COMMENT1": "Index is 5qi value",
+
+            "5": {
+                "arp": {
+                    "priorityLevel": "1",
+                    "preemptVuln": "NOT_PREEMPT",
+                    "preemptCap": "NOT_PREEMPTABLE"
+                },
+                "flowType": "nonGbr",
+                "precedence": 255,
+                "flowInfos": [
+                    {
+                        "packFiltId": "1",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "192.168.0.100",
+                        "EXAMPLE flowDescription": "permit out ip from any to any",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "UPLINK"
+                    },
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "192.168.0.100",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from any to any",         
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "DOWNLINK"
+                    }
+                ]
+            },
+            "2": {
+                "arp": {
+                    "priorityLevel": "0",
+                    "preemptVuln": "string",
+                    "preemptCap": "string"
+                },
+                "flowType": "Gbr",
+                "precedence": 255,
+                "maxbrUl": "1 Gbps",
+                "maxbrDl": "1 Gbps",
+                "gbrUl": "1 Gbps",
+                "gbrDl": "1 Gbps",
+                "flowInfos": [
+                    {
+                        "packFiltId": "1",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "192.168.1.10",
+                        "EXAMPLE flowDescription": "permit out ip from any port = 138 to 192.168.1.10",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "UPLINK"
+                    },
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "192.168.1.10",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from 192.168.1.10 to any",         
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "DOWNLINK"
+                    }
+                ]
+            }
+        },
+        "additionalFlows": {
+            "0": {
+                "flowType": "Gbr",
+                "maxbrUl": "1 Gbps",
+                "maxbrDl": "1 Gbps",
+                "gbrUl": "1 Gbps",
+                "gbrDl": "1 Gbps",
+                "flowInfos": [
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "192.168.1.100",
+                        "EXAMPLE flowDescription": "permit out ip from any port = 138 to 192.168.1.100",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "UPLINK"
+                    },
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "192.168.1.100",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from 192.168.1.100 to any",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "DOWNLINK"
+                    }
+                ]
+            },
+            "1": {
+                "flowType": "nonGbr",
+                "flowInfos": [
+                    {
+                        "flowDescription": "permit out ip from 192.168.0.1 to 192.168.0.100",
+                        "packFiltId": "1",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "BIDIRECTIONAL"
+                    }
+                ]
+            }
+        }
+    },
+    "dnn3.slice1.net": {
+        "defaultFlow": {
+            "COMMENT1": "Index is 5qi value",
+
+            "5": {
+                "arp": {
+                    "priorityLevel": "1",
+                    "preemptVuln": "NOT_PREEMPT",
+                    "preemptCap": "NOT_PREEMPTABLE"
+                },
+                "flowType": "nonGbr",
+                "precedence": 255,
+                "flowInfos": [
+                    {
+                        "packFiltId": "1",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "192.168.0.100",
+                        "EXAMPLE flowDescription": "permit out ip from any to 192.168.0.100",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "UPLINK"
+                    },
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "192.168.0.100",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from 192.168.0.100 to any",         
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "DOWNLINK"
+                    }
+                ]
+            },
+            "2": {
+                "arp": {
+                    "priorityLevel": "0",
+                    "preemptVuln": "string",
+                    "preemptCap": "string"
+                },
+                "flowType": "Gbr",
+                "precedence": 255,
+                "maxbrUl": "1 Gbps",
+                "maxbrDl": "1 Gbps",
+                "gbrUl": "1 Gbps",
+                "gbrDl": "1 Gbps",
+                "flowInfos": [
+                    {
+                        "packFiltId": "1",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "192.168.1.10",
+                        "EXAMPLE flowDescription": "permit out ip from any port = 138 to 192.168.1.10",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "UPLINK"
+                    },
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "192.168.1.10",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from 192.168.1.10 to any",         
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "DOWNLINK"
+                    }
+                ]
+            }
+        },
+        "additionalFlows": {
+            "0": {
+                "flowType": "Gbr",
+                "maxbrUl": "1 Gbps",
+                "maxbrDl": "1 Gbps",
+                "gbrUl": "1 Gbps",
+                "gbrDl": "1 Gbps",
+                "flowInfos": [
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "any",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "192.168.1.100",
+                        "EXAMPLE flowDescription": "permit out ip from any port = 138 to 192.168.1.100",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "UPLINK"
+                    },
+                    {
+                        "packFiltId": "2",
+                        "COMMENT2": "Accepted Values - action [permit,deny]",
+                        "action": "permit",
+                        "COMMENT3": "Accepted Values - direction [in, out]",
+                        "direction": "out",
+                        "COMMENT4": "Accepted Values - protocol [ip]",
+                        "protocol": "ip",
+                        "COMMENT5": "Accepted Values - src-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "src-ip": "192.168.1.100",
+                        "COMMENT6": "Accepted Values - dest-ip ['any' for match-all, port number with spaces between ip and port(eg. port = 6000) and ip-range(eg. 10.0.0.0/8) can be given]",
+                        "dest-ip": "any",
+                        "EXAMPLE flowDescription": "permit out ip from 192.168.1.100 to any",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "DOWNLINK"
+                    }
+                ]
+            },
+            "1": {
+                "flowType": "nonGbr",
+                "flowInfos": [
+                    {
+                        "flowDescription": "permit out ip from 192.168.0.1 to 192.168.0.100",
+                        "packFiltId": "1",
+                        "tosTrafficClass": "20 ff",
+                        "flowDirection": "BIDIRECTIONAL"
+                    }
+                ]
+            }
+        }
+    }
+}

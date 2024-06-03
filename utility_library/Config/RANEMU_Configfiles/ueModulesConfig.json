@@ -1,0 +1,61 @@
+{
+"version" : "1.2",  
+
+"num-UEs" : 10000,
+"suci-info": {
+		"supi-type" : 0,	
+		"IMSI-range" : {
+			"mcc" : 404,
+			"mnc-digits" : 2, 
+			"mnc" : 0, 
+			"msin-range-start" : "0000000000",
+			"msin-range-end" : "9999999999" 
+		},
+		"suci-params" : {
+			"suci-routing-indicator" : 0, 
+			"suci-protection-scheme-id" : 0, 
+			"suci-home-network-public-key-id" : 0 
+		}
+	},
+
+"aka-milenage-info" : {
+		"aka-auth-type" : "5G_AKA",
+		"aka-algorithm": "MILENAGE",
+		"aka-milenage-K-size" : 16, 
+		"aka-milenage-K-start" : ["0x34", "0xb7", "0xd5", "0xee", "0xe1", "0x1a", "0x21", "0x62", "0xbb", "0x20", "0xf3", "0xc4", "0xe5", "0x77", "0x36", "0x74"],
+		"aka-milenage-OP-size" : 16,   
+		"aka-milenage-OP-start" : ["0x63", "0xbf", "0xa5", "0x0e", "0xe6", "0x52", "0x33", "0x65", "0xff", "0x14", "0xc1", "0xf4", "0x5f", "0x88", "0x73", "0x7d"],
+		"aka-milenage-SQN-size" : 6 
+},
+
+"security-info": {
+		"nas-integrity":  {
+			"nas-integrity-EIA0" : "true", 
+			"nas-integrity-EIA1" : "false", 
+			"nas-integrity-EIA2" : "true",
+			"nas-integrity-EIA3" : "false"  
+		},
+		"nas-ciphering":  {
+			"nas-ciphering-EEA0" : "true", 
+			"nas-ciphering-EEA1" : "false", 
+			"nas-ciphering-EEA2" : "true",
+			"nas-ciphering-EEA3" : "false"  
+		}
+},
+
+"session-management" : {
+	
+	"integrityProtectionMaxDataRate" : {
+
+			"uplink" : 255,
+			"downlink" : 255
+	},
+	"sscMode": 1,
+	"alwaysOnPduSessionType" : false,
+	"maxNumOfPacketFilters" : 15,
+	"RQOS-Support" : false,
+	"MHIPV6" : false
+	
+}
+
+}

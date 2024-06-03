@@ -1,0 +1,22 @@
+{
+	"version" : "1.0",
+
+	"UPF" : [
+		{		
+			"s-nssai-list" : [
+				{
+					"sNssai" : {
+						"sst" : 1,
+						"sd": 0,
+						"default-dnn": "dnn1.slice1.net",
+						"dnn-list": []
+					}
+				}
+			],
+			"teidri": 4,
+			"v4":1,
+			"v6":0
+		}
+	]
+
+}

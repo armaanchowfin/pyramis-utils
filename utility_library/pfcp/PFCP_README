@@ -1,0 +1,98 @@
+/*********************************************************************
+*
+* IITB CONFIDENTIAL
+* __________________
+*
+* All Rights Reserved © 2018-19 IITB, India
+* All Rights Reserved © 2019-20 IITB, India
+*
+* NOTICE: All information contained in this document/file is, and remains the 
+* property of Indian Institute of Technology, Bombay (IITB).The intellectual
+* and technical concepts contained herein may be proprietary to IITB and are
+* protected by trade secret or copyright laws. Unauthorized use, dissemination, 
+* reproduction, duplication, reverse engineering, any form of redistribution, 
+* or use in part or in whole, by any means is strictly forbidden unless prior, 
+* express, written and signed consent is obtained from IITB.
+*
+* Institute   : Indian Institute of Technology Bombay (IITB)
+**********************************************************************/
+
+                     P F C P      L I B R A R Y
+
+1. Intro:
+
+Each Message is made up of the PFCP header and a set of Information Elements
+(IEs). Each IE is made up of an IEI, a 16bit unique Identifier assigned to
+each IE, the Length of the IE (excluding the IEI and Length) and the IE's
+contents.
+
+2. Design
+
+Each IE has a specific encode and decode function which are added to
+pfcpIEoperations, a map containing the functions of supported IEs.
+The map ieData contains information about Messages and the IEs within each
+message. Each IE also has some flags set whether the IE is optional, mandatory,
+etc.
+
+
+3. IE Encode & Decode Design
+
+Each IE has a separate .h and .cpp files. The .h file contains the structure
+of the IE and exposes the encode and decode functions. The cpp file contains
+the encode and decode function definitions.
+encode and decode function definitions:
+
+int Encode(uint8_t *buffer, uint16_t bufLen, void* ptr, uint16_t *encodedLen);
+
+INPUT:  buffer: buffer where IEI needs to encoded,
+        bufLen: octets left in buffer
+        ptr:    pointer to the IEI
+        encodedLen: number of octets used for encoding.
+OUTPUT: return SUCCESS if encoding was successful, else return FAILURE.
+
+
+int Decode(uint8_t *buffer, uint16_t bufLen, void* ptr, uint16_t *encodedLen);
+
+INPUT:  buffer: buffer where IEI needs to be decododed from
+        bufLen: octets left in buffer
+        ptr:    pointer to the IEI
+        encodedLen: number of octets that were decoded.
+OUTPUT: return SUCCESS if decoding was successful, else return FAILURE.
+
+a. The encode and decode functions MUST check if the buffer has sufficient
+   space before encoding/decoding. Checking if the buffer has X bytes left MUST
+   precede code encoding X bytes into the buffer.
+
+b. Values larger than 1 byte must be encoded in the big endian order (i.e.
+   network byte order). DO NOT use memcpy(), it will not work on little endian
+   machines. pfcpUtil.h contains helpers to encode such variables.
+      - Use addIEI and addLEN to encode IEI and LEN respectively.
+      - Use getIEI and getLEN to decode IEI and LEN respectively.
+      - Use addU32 and getU32 to encode or decode uint32_t variables. e.g.TEID
+      - Use addU16 and getU16 to encode or decode uint16_t variables.
+
+c. If the IE's length varies based on what is added, add macros in .h equal to
+   the maximum and minimum possible lengths and cross check the received length
+   while decoding.
+
+d. If the IE's length is always fixed, cross check with the buffer length if
+   it has space for the IE contents, IEI and length. Multiple length checks
+   wont be necessary.
+
+The .h file should contain macros needed to fill in the IE structure and while
+encoding or decoding.
+
+Some IEs are made up of other IEs. For example createPDR contains IE mutliple IEs
+each describing a way of matching incoming packets. Such IEs must be declared
+of type pfcpANY_t. A list of IEs that can be added will be defined in the .cpp
+file. This list needs to be passed to pfcpIeEncode() or pfpcIeDecode() to
+encode the IE.  The functions registered in pfcpIEoperations will be
+pfcpAnyEncode and pfcpAnyDecode. The user has to seperately encode such IEs and
+fill in the pfcpANY_t.
+For example:
+   1. Declare createPDR_t
+   2. Add a filled precedence IE into createPDR->IElist.
+   3. encode by calling encodeCreatePDR into a buffer.
+   4. copy the buffer contents into a pfcpAny_t and add it to a
+      pfcpMessage->body
+

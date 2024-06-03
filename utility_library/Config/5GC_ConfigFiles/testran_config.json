@@ -1,0 +1,86 @@
+{
+    "version" : "1.0",
+
+    "TESTRAN" : [
+        {
+            "dnn-ip":"192.162.1.12",
+            "qosRules" : [
+                {
+                    "QosRuleID" : 1,
+                    "precedence" : 1,
+                    "refQosFlowID" : 2,
+                    "packetFilterList" :[
+                        {
+                           "packFiltId": "1",
+                            "packFiltContent": "permit out ip from 192.168.0.1/24 to 192.168.0.1/24",
+                            "flowDirection": "UPLINK"
+                        },
+                        {
+                            "packFiltId": "2",
+                            "packFiltContent": "permit out ip from 192.168.0.1/24 to 192.168.0.1/24",
+                            "flowDirection": "DOWNLINK"
+                        }
+                    ]
+                },
+                {
+                    "QosRuleID" : 2,
+                    "precedence" : 2,
+                    "refQosFlowID" : 2,
+                    "packetFilterList" :[
+                        {
+                            "packFiltId": "3",
+                            "packFiltContent": "permit out ip from 192.168.0.1/24 to 192.168.0.1/24",
+                            "flowDirection": "UPLINK"
+                        },
+                        {
+                            "packFiltId": "4",
+                            "packFiltContent": "permit out ip from 192.167.1.16/24 to 192.168.0.1/24",
+                            "flowDirection": "DOWNLINK"
+                        }
+                    ]   
+                }
+            ],
+            "qosFlows" : [
+                {
+                    "qosFlowID" : 1,
+                    "maxbrUl": "1",
+                    "maxbrDl": "1",
+                    "brUl": "1",
+                    "brDl": "1",
+                    "flowType": "Gbr",
+                    "5qi" : "1",
+                    "averageWindow" : 0
+                },
+                {
+                    "qosFlowID" : 2,
+                    "maxbrUl": "1",
+                    "maxbrDl": "1",
+                    "brUl": "1",
+                    "brDl": "1",
+                    "flowType": "Gbr",
+                    "5qi" : "2",
+                    "averageWindow" : 0
+                }
+            ]
+        }
+    ],
+
+    "AMF" : [
+        {
+            "amf-s-nssai-list" : {
+                "num-slices": 1,
+                "amf-nssai" : [
+                    {
+                        "snssai" :{ 
+                            "sst" : 1,
+                            "sd" : 0
+                        },
+                        "default-dnn-for-smf-selection" : "dnn1.slice1.net"
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+

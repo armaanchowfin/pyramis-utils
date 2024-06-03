@@ -1,0 +1,52 @@
+{
+	"version" : "1.0",
+
+	"SMF" : [
+		{
+			"TEIDstart" : 1000,			
+			"s-nssai-list" : [
+				{
+					"sNssai" : {
+						"sst" : 1,
+						"sd": 0,
+						"default-dnn": {
+							"name": "dnn1.slice1.net",
+							"networkIP" : "192.168.0.0",
+							"subnetmask": 16,
+                            "qfi": 1
+						},
+						"dnn-list": []
+					}
+				},
+				{
+					"sNssai" : {
+						"sst" : 1,
+						"sd": 0,
+						"default-dnn": {
+							"name": "dnn2.slice2.net",
+							"networkIP" : "191.167.0.0",
+							"subnetmask": 16,
+                            "qfi": 2
+						},
+						"dnn-list": []
+					}
+				}
+			],
+
+			"downlinkValue" : 1500,
+			"uplinkValue" : 4,
+			"NFServiceVersion" : {
+					"apiVersionInUri" : "v1",
+					"apiFullVersion" : "1.PreR15.1.0",
+					"expiry" : "2020-08-14T02:30:00+05:30"
+				}
+		}
+	]
+
+}
+
+
+
+
+
+

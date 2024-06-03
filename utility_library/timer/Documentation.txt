@@ -1,0 +1,77 @@
+APIs
+1. fStartPeriodicTimer
+   IP:
+     --> int time (in sec)
+     --> function* handler (function of the form void(*f)(int s))
+     --> int argument
+   OP:
+     --> auto timer_id
+   Working: When the timer reaches the time it will execute the handler function and pass the argument to the function, this will be repeating until the timer is destroyed
+
+2. fStartTimer
+   IP:
+     --> int time (in sec)
+     --> function* handler (function of the form void(*f)(int s))
+     --> int argument
+   OP:
+     --> auto timer_id
+   Working: When the timer reaches the time it will execute the handler function and pass the argument to the function, this will happen only once and then the timer is destroyed
+
+3. fStopTimer
+   IP:
+     --> timer_id
+   OP:
+     --> bool
+   Working: Destroys the timer, whose id is provided as input.
+
+4. fIsTimerRunning
+   IP:
+     --> timer_id
+   OP:
+     --> bool
+   Working: Checks if the timer, whose id is provided as input, still exists or is destroyed.
+
+Working of the timer module:
+ - When an object of timer is created, a new thread is created and that thread has a queue of instances. (when Timer t is called and instances are created when we say t.fStartTimer or t.fStartPeriodicTimer)
+ - These instances has information about timer time, function handler and the argument to pass. 
+ - When the time of an instance is up, that instance is dequeued from the queue and handler is called.
+ - Any number of timer instances can be started and everything will be controlled by this is single thread.
+ - fIsTimerRunning() checks this queue to see if we have this instance or not
+ - fStopTimer() will remove this instance from the queue
+
+example code:
+
+#include "timer.h"
+
+class Foo
+{
+public:
+	void bar(int s) { std::cout << "Foo::bar called " << s << std::endl;}
+};
+
+int main()
+{
+    Timer t; //new timer object is created that is new thread is created
+    
+    Foo example; //object of the class whose function will be called by the timer
+    
+    int arg = 101; //test argument 
+    
+    auto tid = t.fStartTimer(10, std::bind(&Foo::bar, &example, arg), arg); //created a new instance which will be added in the multiset
+    
+    auto tid1 = t.fStartPeriodicTimer(1, std::bind(&Foo::bar, &example, arg), arg); //created a new instance which will be added in the multiset
+
+	for(int i=0; i<1000000000; i++); //time to pass so that this instance is executed
+    
+    std::cout << "timer exists: " << t.fIsTimerRunning(tid) << std::endl; //checking if the timer exists
+    
+    std::cout << "timer exists: " << t.fIsTimerRunning(tid1) << std::endl; //checking if the timer exists
+	
+	for(int i=0; i<1000000000; i++); //time to pass so that this instance is executed
+	
+	t.fStopTimer(tid1);
+
+	std::cout << "timer exists: " << t.fIsTimerRunning(tid1) << std::endl; //checking if the timer exists
+
+    //while(1); 
+}
