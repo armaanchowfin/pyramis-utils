@@ -1,0 +1,116 @@
+typedef enum executionStates
+{
+    E_NFV_INVALID_STATE = -1,
+    E_NFV_STARTED = 0,
+    E_NFV_STOPPED
+} _e_nfv_exec_state;
+
+typedef enum protocols
+{
+    TCP_PROTOCOL = 0,
+    UDP_PROTOCOL,
+    SCTP_PROTOCOL,
+    TOTAL_PROTOCOLS
+} _e_protocols;
+
+typedef enum socketTypes
+{
+    SELF_CONNECT = -1,
+    SCTP_PROTOCOL_SERVER_ACCEPT_SOCKET,
+    SCTP_PROTOCOL_SERVER_DATA_SOCKET,
+    SCTP_PROTOCOL_CLIENT_SOCKET,
+    TCP_PROTOCOL_SERVER_ACCEPT_SOCKET,
+    TCP_PROTOCOL_SERVER_DATA_SOCKET,
+    TCP_PROTOCOL_CLIENT_SOCKET,
+    UDP_PROTOCOL_SERVER_ACCEPT_SOCKET,
+    UDP_PROTOCOL_SERVER_DATA_SOCKET,
+    UDP_PROTOCOL_CLIENT_SOCKET,
+    TIMERFD_SOCKET,
+    NUM_SOCKET_TYPES // always the last one
+} _e_socketType;
+
+
+typedef enum connectionType
+{
+    PERSISTENT=0,
+    SHORT,
+    TOTAL_TYPES
+} _e_connectionType;
+
+typedef struct fdData
+{
+    _e_socketType type;
+    uint port;
+    uint id;
+    int fd;
+    uint32_t ipAddr; // peer ip in a connection
+	
+    _e_connectionType connectionType;
+
+    timer_expiry_context_t ctx;
+    void (*timerCB) (timer_expiry_context_t& ctx, struct nfvInstanceData *nfvInst);
+
+    fdData()
+    {
+        port = 0;
+        type = NUM_SOCKET_TYPES;
+        id = 0;
+        fd = -1;
+    }
+    fdData(_e_socketType type, uint port, int fd, uint32_t ipAddr,_e_connectionType connectionType)
+    {
+        this->type = type;
+        this->port = port;
+        this->id = fd;
+        this->fd = fd;
+        this->ipAddr = ipAddr;
+        this->connectionType=connectionType;
+    }
+
+    fdData(_e_socketType type, int fd)
+    {
+        this->type = type;
+        this->fd = fd;
+    }
+} fdData_t;
+
+struct nfvInstanceData
+{
+    uint32_t bind_addr; // NF's own IP
+    _e_nfv_exec_state state;
+    std::map<uint, fdData_t> fd_map;
+
+    std::set<uint> fd_to_be_closed_set;
+    int epoll_fd;
+
+    int event_fd;
+    int id;
+    int thread_id;
+};
+
+int open_and_init_socket(fdData_t& socket_fdd, uint32_t bind_addr, struct nfvInstanceData *nfvInst);
+int platform_tcp_recv_data(int active_fd, std::vector<char>& msg);
+int platform_udp_recv_data(int active_fd, std::vector<char>& msg);
+int platform_sctp_recv_data(int active_fd, std::vector<char>& msg, int *stream_id);
+void send_data(std::string peer_ip, int peer_port, std::vector<char>& msg, _e_connectionType conn_type,
+    _e_protocols protocol, NODE peer_node, size_t message_length, int procedure_key_or_original_receiver_fd, 
+    void (*callback)(std::vector<char>&, int, int, nfvInstanceData *), struct nfvInstanceData *nfvInst
+    );
+int send_response(std::string peer_ip, int peer_port, int original_receiver_fd, std::vector<char>& msg, 
+    _e_protocols protocol, int message_length
+    );
+int platform_tcp_send_data(int sending_fd, std::vector<char>& msg, int message_length, 
+    struct sockaddr_in *sin
+    );
+int platform_udp_send_data(int sending_fd, std::vector<char>& msg, int message_length, 
+    struct sockaddr_in *sin
+    );
+int platform_sctp_send_data(int sending_fd, std::vector<char>& msg, int message_length,
+    struct sockaddr_in *sin, uint16_t stream_id
+    );
+int create_connection(std::string peer_ip, int peer_port, struct sockaddr_in peer_addr, _e_protocols protocol);
+int send_new_request(std::string peer_ip, int peer_port, std::vector<char>& msg, _e_connectionType conn_type, 
+    _e_protocols protocol, NODE peer_node, int message_length, int procedure_key,
+    void (*callback)(std::vector<char>&, int, int, nfvInstanceData *), struct nfvInstanceData *nfvInst
+    );
+void inline remove_fd_from_epoll(int epfd, int fd);
