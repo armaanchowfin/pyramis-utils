@@ -59,7 +59,7 @@
 #define specialLog(log, ...)    platformLog(0x52, __FILENAME__, __LINE__, __func__, log, ##__VA_ARGS__)
 #endif
 
-#define sLOG_ENTRY		lowLog("%s", "ENTRY")
+#define LOG_ENTRY		lowLog("%s", "ENTRY")
 #define LOG_EXIT		lowLog("%s", "EXIT")
 
 std::string getPrintStr(const char *name, uint8_t* inputArray, size_t size);
