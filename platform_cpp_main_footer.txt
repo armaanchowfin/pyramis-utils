@@ -1,0 +1,56 @@
+    
+    // get local_addr of NF
+    std::string ip = "127.0.0.1";
+    uint32_t bind_addr = INADDR_ANY;
+
+    if (inet_pton(AF_INET, ip.c_str(), &bind_addr) < 0)
+    {
+        lowLog("ipnet_pton failed, %s\n", strerror(errno));
+        exit(1);
+    }
+
+    if (argc != 3) {
+        std::cerr << "Usage: ./server lo #threads" << "\n";
+        return 0;
+    }
+
+    int num_threads = std::stoi(argv[2]);
+
+    // setup global config stuff
+    // One nfvInst per thread.
+    nfvInstVector.resize(num_threads);
+    for (int i = 0; i < num_threads; i++) {
+        nfvInstVector[i] = init_platform(bind_addr);
+        nfvInstVector[i]->id = i;
+    }
+
+    // create listen sockets for interfaces of one NF instance, copy
+    // contents to all NF instances. More specifically, copy the fd
+    // of the interface listening sockets to each NF instance.
+    // UDP sockets persist.
+    open_channels(nfvInstVector[0]);
+    for (int i = 1; i < num_threads; i++) {
+        for (auto fd_map_itr = nfvInstVector[0]->fd_map.begin(); fd_map_itr != nfvInstVector[0]->fd_map.end(); fd_map_itr++) {
+                nfvInstVector[i]->fd_map[fd_map_itr->first] = fd_map_itr->second;
+        }
+    }
+
+    // create threads.
+    // each thread performs blocking epoll_wait on the same 
+    // fd i.e. sockets at server init.
+    std::vector<pthread_t> threads(num_threads);
+    for (int i = 0; i < num_threads; i++) {
+        nfvInstVector[i]->thread_id = i;
+        if (pthread_create(&threads[i], NULL, poll_on_events, (void *)nfvInstVector[i]) < 0) {
+            lowLog("pthread failed\n");
+            return 0;
+        }
+    }
+
+    for (int i = 0; i < num_threads; i++) {
+        pthread_join(threads[i], NULL);
+        midLog("Thread %d joined", i);
+    }
+
+    return 0;
+}
