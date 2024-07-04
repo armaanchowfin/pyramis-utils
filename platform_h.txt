@@ -94,7 +94,7 @@ int platform_udp_recv_data(int active_fd, std::vector<char>& msg);
 int platform_sctp_recv_data(int active_fd, std::vector<char>& msg, int *stream_id);
 void send_data(std::string peer_ip, int peer_port, std::vector<char>& msg, _e_connectionType conn_type,
     _e_protocols protocol, NODE peer_node, size_t message_length, int procedure_key_or_original_receiver_fd, 
-    void (*callback)(std::vector<char>&, int, int, nfvInstanceData *), struct nfvInstanceData *nfvInst
+    void (*callback)(std::vector<char>&, size_t, int, nfvInstanceData *), struct nfvInstanceData *nfvInst
     );
 int send_response(std::string peer_ip, int peer_port, int original_receiver_fd, std::vector<char>& msg, 
     _e_protocols protocol, int message_length
@@ -111,6 +111,6 @@ int platform_sctp_send_data(int sending_fd, std::vector<char>& msg, int message_
 int create_connection(std::string peer_ip, int peer_port, struct sockaddr_in peer_addr, _e_protocols protocol);
 int send_new_request(std::string peer_ip, int peer_port, std::vector<char>& msg, _e_connectionType conn_type, 
     _e_protocols protocol, NODE peer_node, int message_length, int procedure_key,
-    void (*callback)(std::vector<char>&, int, int, nfvInstanceData *), struct nfvInstanceData *nfvInst
+    void (*callback)(std::vector<char>&, size_t, int, nfvInstanceData *), struct nfvInstanceData *nfvInst
     );
 void inline remove_fd_from_epoll(int epfd, int fd);

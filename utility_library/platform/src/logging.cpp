@@ -25,7 +25,7 @@
 #include <time.h>
 #include <sys/syscall.h>
 #include <sys/time.h>
-#include "platform/include/logging.h"
+#include "../include/logging.h"
 
 #ifdef  COLOURED_LOGS		//Enable from Makefile
                                             /* logMask, Y = dont care */

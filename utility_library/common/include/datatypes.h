@@ -29,8 +29,8 @@
 
 #include <arpa/inet.h>
 
-#include "common/include/IEs.h"
-#include "common/include/aka.h"
+#include "IEs.h"
+#include "aka.h"
 #include <errno.h>
 
 #define	IP_ADDR_MAX_STRLEN	(INET6_ADDRSTRLEN+1)
